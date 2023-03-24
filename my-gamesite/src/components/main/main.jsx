@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../header/header';
 
 export const Main = () => {
     const [Oldschool,setOldschool]=useState([]);
     const [Bestseller,setBestseller]=useState([]);
+    console.log(Bestseller)
+    console.log(Oldschool)
     useEffect(()=>{
      axios.get("http://localhost:1337/api/best-sellers").then((Bestseller)=>{
-            setBestseller(Bestseller.data.data)
+            setBestseller(Bestseller.data.data);
+            
      }).catch(()=>{
 
      }).finally(()=>{
 
      });
      axios.get("http://localhost:1337/api/old-schools").then((Oldschool)=>{
-        setBestseller(Oldschool.data.data)
+        setOldschool(Oldschool.data.data)
      }).catch(()=>{
 
      }).finally(()=>{
@@ -21,7 +25,11 @@ export const Main = () => {
      });
     },[])
   return (
-    <div>M</div>
+    <>
+     <Header/>
+    </>
+   
   )
 }
+
 export default Main;

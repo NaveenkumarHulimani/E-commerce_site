@@ -2,7 +2,16 @@ import React from 'react'
 
 export const Header = () => {
   return (
-    <div>header</div>
+    <>
+    <nav className='nav-bar'>
+        <section className='logo'>
+            My game list
+        </section>
+        <section>
+            <i className='fa fa-shopping-cart'></i>
+        </section>
+    </nav>
+    </>
   )
 }
 export default Header;

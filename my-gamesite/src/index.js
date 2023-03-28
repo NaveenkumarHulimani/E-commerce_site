@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Carprovider } from './components/context/cart-context';
+import { CartProvider } from './context/cart-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Carprovider>
+    <CartProvider>
        <App />
-    </Carprovider>
+    </CartProvider>
    
   </React.StrictMode>
 );

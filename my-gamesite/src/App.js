@@ -1,6 +1,8 @@
-// import {BrowserRouter,Route,Routes} from 'react';
+//import {BrowserRouter,Route,Routes} from 'react';
+
+ 
 import Main from './components/main/main';
-import Cart from  './components/cart/cart'
+//import Cart from  './components/cart/cart'
 
 function App() {
   return (

@@ -30,11 +30,11 @@ export const Main = () => {
      <section>
          <article>Best sellers</article>
          {Bestseller.map((item,key)=>{
-              return <Item title={item.attributes.title} description={item.attributes.description} price={item.attributes.price}/>
+              return <Item item={item.attributes}/>
          })}
          <article>Old school</article>
          {Oldschool.map((item,key)=>{
-              return <Item title={item.attributes.title} description={item.attributes.description} price={item.attributes.price}/>
+              return <Item item={item.attributes}/>
          })}
      </section>
     </>

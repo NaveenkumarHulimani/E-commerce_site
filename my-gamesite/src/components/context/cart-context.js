@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Carcontext=React.createContext();
+const Cartcontext=React.createContext();
 
 const Carprovider=(props)=>{
+    const [cartData,setCartData]=useState([]);
+    const addcartData=(data)=>{
+           setCartData([...cartData,data])
+    }
+    const removecartData=()=>{
+
+    }
 return (
-    <Carcontext.Provider>
+    <Cartcontext.Provider value={{cartData,addcartData}}>
         {props.children}
-    </Carcontext.Provider>
+    </Cartcontext.Provider>
 )
 }
 
-export {Carcontext,Carprovider}
+export {Cartcontext,Carprovider}

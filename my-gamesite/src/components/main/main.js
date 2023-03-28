@@ -1,45 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Header from '../header/header';
-import Item from '../item/item';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Header from "../header/header";
+import Item from "../item/item";
 
-export const Main = () => {
-    const [Oldschool,setOldschool]=useState([]);
-    const [Bestseller,setBestseller]=useState([]);
-   
-    useEffect(()=>{
-     axios.get("http://localhost:1337/api/best-sellers").then((Bestseller)=>{
-            setBestseller(Bestseller.data.data);
-            
-     }).catch(()=>{
+const Main = ()=> {
+    const [oldSchool, setOldSchool] = useState([]);
+    const [bestSeller, setBestSeller] = useState([]);
+    useEffect(()=> {
+        axios.get('http://localhost:1337/api/old-schools?populate=*').then((oldSchool)=> {
+            setOldSchool(oldSchool.data.data)
+        }).catch(()=> {
 
-     }).finally(()=>{
+        }).finally(()=> {
 
-     });
-     axios.get("http://localhost:1337/api/old-schools").then((Oldschool)=>{
-        setOldschool(Oldschool.data.data)
-     }).catch(()=>{
+        });
+        axios.get('http://localhost:1337/api/best-sellers?populate=*').then((bestSeller)=> {
+            setBestSeller(bestSeller.data.data)
+        }).catch(()=> {
 
-     }).finally(()=>{
+        }).finally(()=> {
 
-     });
-    },[])
-  return (
-    <>
-     <Header/>
-     <section>
-         <article>Best sellers</article>
-         {Bestseller.map((item,key)=>{
-              return <Item item={item.attributes}/>
-         })}
-         <article>Old school</article>
-         {Oldschool.map((item,key)=>{
-              return <Item item={item.attributes}/>
-         })}
-     </section>
-    </>
-   
-  )
+        });
+    }, [])
+    return (
+        <>
+            <Header/>
+            <section>
+                <article>Best Sellers</article>
+                {bestSeller.map((item, key)=> {
+                    return <Item item={item.attributes} />
+                })}
+                <article>Old School</article>
+                {oldSchool.map((item, key)=> {
+                    return <Item item={item.attributes}/>
+                })}
+            </section>
+        </>
+    )
 }
-
-export default Main;
+export default Main

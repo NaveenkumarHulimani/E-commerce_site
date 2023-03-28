@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 
-const Cartcontext=React.createContext();
+const CartContext = React.createContext();
 
-const Carprovider=(props)=>{
-    const [cartData,setCartData]=useState([]);
-    const addcartData=(data)=>{
-           setCartData([...cartData,data])
+const CartProvider = (props)=> {
+    const [cartData, setCartData] = useState([]);
+    const addCartData = (data)=> {
+        setCartData([...cartData, data]);
     }
-    const removecartData=()=>{
+    const removeCartData = ()=> {
 
     }
-return (
-    <Cartcontext.Provider value={{cartData,addcartData}}>
-        {props.children}
-    </Cartcontext.Provider>
-)
+    return (
+        <CartContext.Provider value={{cartData, addCartData}}>
+            {props.children}
+        </CartContext.Provider>
+    )
 }
-
-export {Cartcontext,Carprovider}
+export {CartContext, CartProvider};
